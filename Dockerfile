@@ -14,17 +14,11 @@ RUN true \
  && rm -rf /usr/share/man/* \
  && rm -rf /usr/share/doc/* \
  && rm -rf /var/lib/apt/lists/*
-
-ADD datacrow_4_1_0_server_zipped.zip /
-RUN mkdir /src \
- && mv /*.zip /src/datacrow_server_zipped.zip \
- && cd /src \
- && unzip datacrow_server_zipped.zip \
- && rm /src/datacrow_server_zipped.zip
+ && mkdir /src \
+ && cd /src
+ADD /datacrow_4_2_2_server_zipped /src/dc-server/
 
 EXPOSE 80 9000 9001
-
-#VOLUME FIXME
 
 #ENTRYPOINT [FIXME
 CMD [ "java" "-Xmx512m" "-jar" "/src/dc-server/datacrow-server.jar" "-userdir:/src" "-webserverport:80" ]
