@@ -16,7 +16,7 @@ RUN true \
  && rm -rf /var/lib/apt/lists/*
  && mkdir /src \
  && cd /src
-ADD /datacrow_4_2_2_server_zipped /src/dc-server/
+ADD datacrow_4_2_2_server_zipped /src/dc-server/
 
 EXPOSE 80 9000 9001
 
